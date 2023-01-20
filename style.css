@@ -1,0 +1,143 @@
+:root {
+  font-size: 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+
+  color: #ffffff;
+  font-family: 'Roboto Mono', monospace;
+
+  background-color: #09090a;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 10rem 12rem 4.8rem;
+
+  position: fixed;
+
+  background-color: #09090a;
+}
+
+header button {
+  background: none;
+  color: #ffffff;
+  border: #8b5cf6 solid 1px;
+  border-radius: 0.8rem;
+
+  padding: 1.6rem 2.4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+}
+header button:hover {
+  background-color: #c3b1fd;
+
+  color: #09090a;
+}
+header button div {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+main form {
+  display: flex;
+
+  padding: 23rem 12rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  
+
+  gap: 3.2rem;
+}
+
+form .habits {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  margin-top: 6.4rem;
+}
+form .habits .habit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 4rem;
+  height: 6.4rem;
+
+  font-size: 3.2rem;
+}
+
+form .days {
+  display: flex;
+  gap: 4.8rem;
+}
+
+.days .day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+.day div {
+  padding-block: 0.8rem;
+
+  font-family: 'Roboto Mono';
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 125%;
+
+  color: #a1a1aa;
+}
+.day input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 6.4rem;
+  width: 6.4rem;
+
+  border: 0.2rem solid #27272a;
+  border-radius: 0.8rem;
+
+  background: #18181b;
+}
+.day input:checked {
+  background: #8b5cf6;
+  border: 2px solid #a78bfa;
+}
+
+@media (max-width: 750px) {
+  header button div {
+    display: none;
+  }
+}
+
+@media (max-width: 515px) {
+  header {
+    flex-direction: column;
+    padding: 5rem 12rem 4.8rem;
+  }
+
+  main form {
+    padding: 23rem 1.5rem;
+  }
+}
