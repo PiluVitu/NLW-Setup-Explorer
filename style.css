@@ -61,7 +61,7 @@ main form {
   display: flex;
 
   padding: 23rem 12rem;
-  width: -moz-fit-content;
+  
   width: fit-content;
   
 
