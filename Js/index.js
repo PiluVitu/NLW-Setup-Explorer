@@ -1,32 +1,32 @@
 const form = document.querySelector('form')
-
 const nlwSetup = new NLWSetup(form)
+const button = document.querySelector('header button')
 
-const data = {
-  run: ['01-01', '01-03'],
-  water: [
-    '01-01',
-    '01-02',
-    '01-03',
-    '01-04',
-    '01-05',
-    '01-06',
-    '01-07',
-    '01-08',
-    '01-09',
-    '01-10',
-    '01-11',
-    '01-12',
-    '01-13',
-    '01-14',
-    '01-15',
-    '01-16'
-  ],
-  food: ['01-01', '01-02', '01-03', '01-04', '01-05'],
-  workout: ['01-01'],
-  sleep: ['01-01', '01-02', '01-03', '01-04', '01-05'],
-  sigma: ['01-10']
+load()
+button.addEventListener('click', add)
+document.addEventListener('change', save)
+
+function add() {
+  const today = new Date().toLocaleDateString('pt-BR').slice(0, -5)
+  const dayAuthentication = nlwSetup.dayExists(today)
+
+  if (dayAuthentication) {
+    alert('❌Data já registrada, volte amanhã')
+    return
+  }
+
+  alert('✅Data registrada com sucesso, parabéns')
+  nlwSetup.addDay(today)
 }
 
-nlwSetup.setData(data)
-nlwSetup.load()
+function save() {
+  console.log(nlwSetup.data)
+  localStorage.setItem('NLWSetupExplorer@habits', JSON.stringify(nlwSetup.data))
+}
+
+function load() {
+  const data = JSON.parse(localStorage.getItem('NLWSetupExplorer@habits')) || {}
+
+  nlwSetup.setData(data)
+  nlwSetup.load()
+}
